@@ -1,104 +1,280 @@
-/* CSS Variables for Theme Management */
-:root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
+@import url('./design-tokens.css');
+
+/* App-level Layout */
+.root-layout {
+  display: flex;
+  height: 100vh;
+  background: var(--color-ffffff, #fff);
+  font-family: var(--font-nunito), Arial, sans-serif;
 }
 
-[data-theme="dark"] {
-  /* Dark theme colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
-  --text-primary: #ffffff;
-  --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
-  --button-text: #ffffff;
-}
-
-.App {
-  text-align: center;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
+/* Sidebar styles */
+.sidebar {
+  width: 260px;
+  background: var(--color-252525);
+  color: var(--color-ffffff);
   display: flex;
   flex-direction: column;
+  padding: var(--spacing-24, 24px) 0 var(--spacing-24, 24px) var(--spacing-16, 16px);
+  min-width: 230px;
+  box-shadow: 2px 0 12px 0 #c4c4c4;
+  z-index: 10;
+  height: 100vh;
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--spacing-20, 20px);
+}
+.sidebar-logo {
+  font-size: 2.5rem;
+}
+.sidebar-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  font-family: var(--typo-14-family);
+  letter-spacing: 0.2px;
+}
+.sidebar-add {
+  margin-left: auto;
+  background: var(--color-fff599);
+  color: var(--color-3b3b3b);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius-20);
+  font-size: 2rem;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease;
-  position: relative;
-}
-
-.App-link {
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-}
-
-.theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 4px #fff59944;
+  transition: background 0.16s;
+}
+.sidebar-add:hover {
+  background: var(--color-ffc107, #ffe082);
 }
 
-.theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
+.sidebar-info {
+  font-size: 1rem;
+  color: var(--color-cfcfcf);
+  font-family: var(--font-roboto);
+  margin: var(--spacing-16, 16px) 0 0 2px;
 }
 
-.theme-toggle:active {
-  transform: translateY(0);
+/* Main notes area */
+.main-notes {
+  flex: 1 1 0;
+  padding: var(--spacing-40, 40px) var(--spacing-40, 40px);
+  background: var(--color-ffffff);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16, 16px);
+  max-width: 560px;
+  margin: 0 auto;
+}
+.notes-empty {
+  text-align: center;
+  margin-top: 4rem;
+  color: var(--color-cfcfcf);
+  font-size: 1.18rem;
+  font-family: var(--font-roboto);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Note Card */
+.note-card {
+  background: var(--color-f4f5d5, #f4f5d5);
+  box-shadow: 0 2px 20px 0 #cccccc33;
+  border-radius: var(--radius-10, 10px);
+  padding: var(--spacing-16, 16px) var(--spacing-16, 16px) var(--spacing-10, 10px) var(--spacing-16, 16px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: box-shadow 0.20s, border 0.18s;
+  gap: var(--spacing-10, 10px);
+}
+.note-card:hover {
+  border: 2px solid var(--color-3b3b3b, #3b3b3b);
+  box-shadow: 0 6px 38px 0 #d4d6d755;
+}
+.note-card-content {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.note-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 14px;
+}
+.note-action-btn {
+  border: none;
+  background: transparent;
+  font-size: 1.21rem;
+  cursor: pointer;
+  color: var(--color-606060);
+  border-radius: var(--radius-10);
+  padding: 4px 7px;
+  transition: background 0.16s;
+}
+.note-action-btn:hover {
+  background: var(--color-fff599, #e9ecef);
+  color: var(--color-3b464c, #1976d2);
+}
+.masked-block {
+  color: var(--color-cfcfcf);
+  background: var(--color-cccccc);
+  border-radius: var(--radius-3, 3px);
+  padding: 0 12px;
+  margin: 0 2px;
+  font-weight: 600;
+  letter-spacing: 2.4px;
+  font-size: 1.04rem;
+}
+.masked-word {
+  background: var(--color-91f48f, #b69cff22);
+  color: var(--color-3b464c, #1976d2);
+  border-radius: var(--radius-5, 5px);
+  padding: 0 8px;
+  margin: 0 2px;
+  font-weight: 600;
 }
 
-/* Responsive design for mobile */
+.modal-overlay {
+  position: fixed;
+  z-index: 200;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(39,39,39, 0.18);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 0 0 0;
+}
+.modal-card {
+  background: var(--color-ffffff, #fff);
+  border-radius: var(--radius-20, 20px);
+  min-width: 370px;
+  max-width: 98vw;
+  width: 455px;
+  padding: 38px 32px 18px 32px;
+  box-shadow: 0 10px 32px 0 #25252534;
+  border: 2px solid var(--color-cfcfcf);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.modal-title {
+  width: 100%;
+  font-size: 1.14rem;
+  font-family: var(--font-nunito);
+  padding: 10px 2px 11px 10px;
+  letter-spacing: 0.1px;
+  border-radius: var(--radius-10, 10px);
+  border: 1.5px solid var(--color-cccccc);
+  margin-top: 10px;
+  margin-bottom: 13px;
+  background: var(--color-fff599, #fff9e3);
+}
+.modal-content {
+  width: 100%;
+  min-height: 114px;
+  border-radius: var(--radius-10, 10px);
+  padding: 13px;
+  border: 1.5px solid var(--color-cccccc);
+  font-size: 1.07rem;
+  font-family: var(--font-roboto);
+  background: var(--color-f4f5d5, #f6f7e5);
+}
+.modal-toolbar {
+  margin-top: 15px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-family: var(--font-roboto);
+}
+.modal-btn {
+  background: var(--color-fff599, #fff9e3);
+  color: var(--color-3b464c, #282c34);
+  border-radius: var(--radius-10, 10px);
+  border: 1.2px solid var(--color-cccccc, #cfcfcf);
+  padding: 8px 18px;
+  font-family: var(--font-nunito);
+  font-size: 1em;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+}
+.modal-btn.active,
+.modal-btn:active {
+  background: var(--color-b69cff, #bb90e7);
+  color: #fff;
+}
+.modal-primary {
+  background: var(--color-91f48f, #76de58);
+  color: var(--color-252525, #252525);
+  border: 1.2px solid var(--color-263238);
+}
+.modal-delete {
+  background: var(--color-ff9e9e, #fd6b6b);
+  color: var(--color-ffffff, #fff);
+  border: 1.2px solid var(--color-ff0000, #cf2222);
+}
+.modal-btn:disabled {
+  background: var(--color-cfcfcf);
+  color: #fff;
+  opacity: 0.67;
+  cursor: not-allowed;
+}
+.modal-preview {
+  background: var(--color-d4d6d7, #f1f1ef);
+  color: var(--color-3b464c, #3b3b3b);
+  margin-top: 17px;
+  min-height: 32px;
+  padding: 10px 7px;
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-cccccc);
+}
+
+.preview-label {
+  font-size: 0.96em;
+  font-family: var(--font-roboto);
+  color: var(--color-9a9a9a);
+  margin-bottom: 4px;
+}
 @media (max-width: 768px) {
-  .theme-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px;
-    font-size: 12px;
+  .root-layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    border-radius: 0 0 var(--radius-10) var(--radius-10);
+    box-shadow: none;
+    flex-direction: row;
+    align-items: center;
+    padding-left: var(--spacing-8, 8px);
+    padding-bottom: var(--spacing-8, 8px);
+  }
+  .main-notes {
+    padding: 18px 8px 0 8px;
+  }
+  .note-card {
+    padding: var(--spacing-8, 8px);
+    font-size: 0.97em;
+  }
+  .modal-card {
+    min-width: 90vw;
+    width: 95vw;
+    padding: 18px 7px;
   }
 }

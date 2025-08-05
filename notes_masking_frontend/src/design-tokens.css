@@ -1,0 +1,86 @@
+:root {
+  /* Color tokens */
+  --color-252525: #252525;
+  --color-ff9e9e: #ff9e9e;
+  --color-000000: #000000;
+  --color-91f48f: #91f48f;
+  --color-fff599: #fff599;
+  --color-ffffff: #ffffff;
+  --color-3b3b3b: #3b3b3b;
+  --color-9effff: #9effff;
+  --color-b69cff: #b69cff;
+  --color-fd99ff: #fd99ff;
+  --color-ff0000: #ff0000;
+  --color-c4c4c4: #c4c4c4;
+  --color-cfcfcf: #cfcfcf;
+  --color-9a9a9a: #9a9a9a;
+  --color-263238: #263238;
+  --color-d4d6d7: #d4d6d7;
+  --color-7f8a8e: #7f8a8e;
+  --color-3b464c: #3b464c;
+  --color-4fb6b2: #4fb6b2;
+  --color-d0d0d0: #d0d0d0;
+  --color-606060: #606060;
+  --color-30be71: #30be71;
+  --color-cccccc: #cccccc;
+  --color-f4f5d5: #f4f5d5;
+
+  /* Border radius tokens */
+  --radius-3: 3px;
+  --radius-5: 5px;
+  --radius-10: 10px;
+  --radius-15: 15px;
+  --radius-20: 20px;
+  --radius-30: 30px;
+  --radius-60: 60px;
+
+  /* Example spacing tokens (px), add more if needed */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-100: 100px;
+  --spacing-120: 120px;
+  --spacing-154: 154px;
+
+  /* Typography tokens for important text styles (only a subset for brevity) */
+  --font-nunito: 'Nunito', Arial, sans-serif;
+  --font-roboto: 'Roboto', Arial, sans-serif;
+
+  --typo-13-family: 'Nunito', Arial, sans-serif;
+  --typo-13-size: 25px;
+  --typo-13-weight: 400;
+  --typo-13-line-height: 34.1px;
+  --typo-14-family: 'Nunito', Arial, sans-serif;
+  --typo-14-size: 43px;
+  --typo-14-weight: 600;
+  --typo-14-line-height: 58.65px;
+  --typo-16-color: var(--color-cfcfcf);
+  --typo-16-size: 15px;
+  --typo-16-weight: 400;
+  --typo-16-line-height: 20.46px;
+  --typo-18-color: var(--color-9a9a9a);
+  --typo-18-size: 48px;
+  --typo-18-weight: 400;
+  --typo-18-line-height: 65.47px;
+
+  /* Add more as needed by screens */
+}
+
+/* Example shadow tokens (used for cards, boxes etc.) */
+.box-shadow0 {
+  box-shadow: -5px 0 10px 0 #000000;
+}
+.box-shadow1 {
+  box-shadow: 0 5px 10px 0 #000000;
+}
+.box-shadow2 {
+  box-shadow: 45px -10px 80px 0 #000000;
+}
