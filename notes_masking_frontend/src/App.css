@@ -181,7 +181,7 @@
   border: 1.5px solid var(--color-cccccc);
   margin-top: 10px;
   margin-bottom: 13px;
-  background: var(--color-fff599, #fff9e3);
+  background: rgba(198, 188, 98, 1);
 }
 .modal-content {
   width: 100%;

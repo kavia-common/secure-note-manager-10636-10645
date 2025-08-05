@@ -66,7 +66,7 @@ function NoteModal({ open, onClose, onSave, note, isEdit, onDelete, onMaskToggle
         <h2 style={{ fontFamily: "var(--font-nunito)" }}>{isEdit ? "Edit Note" : "New Note"}</h2>
         <input
           className="modal-title"
-          style={{ fontFamily: "var(--font-nunito)" }}
+          style={{ fontFamily: "var(--font-nunito)", backgroundColor: "rgba(231, 225, 177, 1)" }}
           placeholder="Title"
           type="text"
           autoFocus
